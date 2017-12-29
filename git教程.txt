@@ -1,4 +1,4 @@
-git  教程
+﻿git  教程
 	ubantu：sudo  apt-get install git
 	创建一个空文件夹
 	在当前文件夹下初始化git：git init
@@ -15,3 +15,15 @@ git  教程
 	一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
 	git reset --hard xxx 是当把文件xxx已经添加到暂存区了，然后撤回到工作区。
 	git commit之后，可以使用git reset --hard HEAD^回到上一个版本   前提没有提交到远程代码库
+
+	如果需要连接github需要测试本机是否有ssh的key    没有则需要创建
+		ssh-keygen -t rsa -C "youremail@example.com"
+	创建之后需要把key复制到github中   
+	然后测试ssh是否能够和 github联通
+		ssh -T git@github.com
+	远程到github仓库   提交内容
+		git remote add origin git@github.com:michaelliao/learngit.git
+
+		git push -u origin master
+		出错：error: failed to push some refs to 'git@github.com:xxx/xxx.git'//////   
+		解决：git pull --rebase origin master

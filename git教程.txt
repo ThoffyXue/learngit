@@ -1,0 +1,17 @@
+git  教程
+	ubantu：sudo  apt-get install git
+	创建一个空文件夹
+	在当前文件夹下初始化git：git init
+	设置账户名称：git config --global user.email "you@example.com"     git config --global user.name "Your Name"
+	在当前文件夹下创建文件，git add xxx   可以同时add多个文件   空格隔开
+	提交文件：git commit -m "提交描述说明"
+	git log查看每次的提交信息        git log --pretty=oneline查看主要信息
+	git reset --hard HEAD^ 返回到上一个版本
+	git status 查看当前状态
+	git reflog 查看历史log
+	git commit只会提交放在暂存区的修改   也就是add之后的文件    当再次修改而没有被添加，那么可以继续添加提交 相当于做了两次修改
+	git checkout --xxx 把xxx文件在工作区的修改全部撤销，分两种：
+	一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+	一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+	git reset --hard xxx 是当把文件xxx已经添加到暂存区了，然后撤回到工作区。
+	git commit之后，可以使用git reset --hard HEAD^回到上一个版本   前提没有提交到远程代码库

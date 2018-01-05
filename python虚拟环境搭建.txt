@@ -1,0 +1,42 @@
+python创建虚拟环境    ****virtualenv主要是为应用提供了隔离的Python运行环境，解决了不同应用间多版本的冲突问题
+       pip install virtualenv这是创建虚拟环境的工具
+       pip install virtualenvwrapper-win      /////    sudo easy_install virtualenvwrapper  这是让 virtualenv更方便使用的工具
+       virtualenv venv 创建虚拟环境
+       virtualenv --no-site-packages venv 创建一个没有任何第三方包的虚拟环境  （不确定）不加参数会把现有python中的第三方包全部复制过来
+       #######如果是一个没有任何第三方包的环境  会自动安装pip setuptools   需要安装第三方包就进入此虚拟环境进行pip安装
+	virtualenv -p c:\python27\python.exe venv   为新的虚拟环境制定python解释器
+	source venv/bin/activate进入venv环境时，virtualenv会修改相关环境变量，让命令python和pip均指向当前的virtualenv环境。
+	activate venv   激活虚拟环境
+	deactivate	停止虚拟环境
+	rmvirtualenv venv  删除虚拟环境
+
+	--------------------------------------华丽的分割线------------------------------------以上为原生virtualenv命令-----------------------------------------
+	ubantu 中安装好virtualenvwrapper之后，在/usr/local/bin/virtualenvwrapper.sh中写着virtualenvwrapper的使用方法。。。	
+	1.首先在$HOME下创建一个隐藏目录mkdir $HOME/.virtualenvs
+	2.然后打开~/.bashrc文件，在结尾添加两行export WORKON_HOME=$HOME/.virtualenvs      source /usr/local/bin/virtualenvwrapper.sh
+	3.执行source ~/.bashrc
+
+	mkvirtualenv venv   创建虚拟环境
+	workon 空格两次   /////     lsvirtualenv查看当前创建的虚拟环境列表
+	workon venv   进入venv虚拟环境  然后为这个虚拟环境pip安装第三方包
+	cdvirtualenv 进入虚拟环境目录
+	cdsitepackages 进入虚拟环境的site-packages目录
+	lssitepackages 列出site-packages目录的所有软件包
+	deactivate  退出虚拟环境
+	rmvirtualenv venv删除虚拟环境
+	pip freeze >packages.txt　　把当前虚拟环境中的安装包列表保存到文件packages.txt中（冻结环境）　
+	pip install -r packages.txt	  重建环境时也就是上线的时候可以批量下载对应的安装包---避免版本兼容问题
+
+	--------------------------------------华丽的分割线------------------------------------以上为virtualenvwrapper命令-----------------------------------------
+	
+	在pycharm中使用配置好的virtualenv环境
+	打开setting添加本地python环境   在project interpreter中右上角设置按钮点击之后add local找到虚拟环境python.exe路径
+	添加即可，add local下方可以使用pycharm创建虚拟环境
+
+	--------------------------------------华丽的分割线------------------------------------以上为在pycharm中运行虚拟环境----------------------------------
+	
+	为虚拟环境配置环境变量的作用是什么：默认创建的虚拟环境位于C:\Users\username\venv,可以通过环境变量 WORKON_HOME 来定制。
+
+通过计算机-->属性-->高级系统设置-->环境变量-->在系统变量中新建“变量名”：WORKON_HOME,变量值：“你自定义的路径”。
+
+创建后，会自动激活环境，注意看Shell提示符的改变:

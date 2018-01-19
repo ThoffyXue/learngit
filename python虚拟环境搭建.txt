@@ -26,6 +26,9 @@ python创建虚拟环境    ****virtualenv主要是为应用提供了隔离的Python运行环境，解决
 	rmvirtualenv venv删除虚拟环境
 	pip freeze >packages.txt　　把当前虚拟环境中的安装包列表保存到文件packages.txt中（冻结环境）　
 	pip install -r packages.txt	  重建环境时也就是上线的时候可以批量下载对应的安装包---避免版本兼容问题
+	–no-site-packages：不使用系统环境的python安装包，即隔离包中不能使用真实python环境的安装包；当前版本这个选项是默认的。 
+	–system-site-packages：与上面相反，使隔离环境能访问系统环境的python安装包 
+	–distribute：copy一个python环境的分支，默认会安装setup、pip、wheel等基础模块
 
 	--------------------------------------华丽的分割线------------------------------------以上为virtualenvwrapper命令-----------------------------------------
 	
